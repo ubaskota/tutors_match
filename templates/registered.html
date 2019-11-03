@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+
+    <title>Homepage</title>
+
+    <link rel="stylesheet" href="global.css">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+
+  </head>
+
+  <body>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+      <a class="navbar-brand" href="{{ url_for('index') }}">Homepage</a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+        <span class="navbar-toggler-icon"></span>
+
+      </button>
+
+
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+
+        <ul class="navbar-nav mr-auto">
+
+
+          <li class="nav-item active">
+
+            <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
+
+          </li>
+
+
+        </ul>
+
+
+
+          <a class="nav-link" href="{{ url_for('login_submit') }}">Login <span class="sr-only">(current)</span></a>
+
+      </div>
+
+    </nav>
+
+    <div  class="container-fluid text-light bg-dark">
+
+      <div class="jumbotron" style="background-color: #002560; height: 800px">
+
+        <h4> {{ message }}</h4>
+        <h4>click <a href="{{ url_for('login_submit') }}">here </a> to login to your account</h4>
+
+
+
+
+
+      </div>
+
+
+
+    </div>
+
+
+
+    </body>
+    </html>

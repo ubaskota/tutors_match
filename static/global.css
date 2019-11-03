@@ -1,0 +1,115 @@
+/*homepage*/
+/*set background image*/
+/*.bg{
+  background-image: url('jsums.jpeg');
+}*/
+
+h1{
+  color: white;
+  text-align: center;
+}
+
+h2{
+  color: white;
+  text-align: center;
+}
+
+p{
+  color: white;
+}
+
+
+/*getstartedpage*/
+.main{
+    background-image: url('jsums.jpg');
+}
+
+.gstarted{
+  margin: auto;
+  width: 50%;
+  padding: 100px;
+  text-align: center;
+}
+
+.a{
+  color: black;
+  padding: 10px;
+}
+
+* {box-sizing: border-box}
+
+/* Add padding to containers */
+.container {
+  padding: 16px;
+}
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  display: inline-block;
+  border: none;
+  background: #f1f1f1;
+}
+
+input[type=text]:focus, input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Overwrite default styles of hr */
+hr {
+  border: 1px solid #f1f1f1;
+  margin-bottom: 25px;
+}
+
+/* Set a style for the submit/register button */
+.registerbtn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+.registerbtn:hover {
+  opacity:1;
+}
+
+/* Add a blue text color to links */
+a {
+  color: dodgerblue;
+}
+
+/* Set a grey background color and center the text of the "sign in" section */
+.signin {
+  background-color: #f1f1f1;
+  text-align: center;
+}
+
+#subjects {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#subjects td, #subjects th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#subjects tr:nth-child(even){background-color: #f2f2f2;}
+
+#subjects tr:hover {background-color: #ddd;}
+
+#subjects th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
