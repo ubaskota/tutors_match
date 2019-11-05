@@ -87,13 +87,14 @@ def registration_login():
 
 
 @app.route("/registration_signup_tutor", methods = ["POST", "GET"])
-def registration_login():
+def registration_login_tutor():
 
 	first_name = request.form.get('f_name')
 	last_name = request.form.get('l_name')
 	j_num = request.form.get('j_num')
 	email = request.form.get('email')
-	tutorCode = request.form.get('tutorCode')
+	secretcode = request.form.get('secretcode')
+	uniquecode = request.form.get('uniquecode')
 	password = request.form.get('psw')
 	re_password = request.form.get('re_psw')
 
@@ -103,31 +104,32 @@ def registration_login():
 	#check if the password is valid and the length of j_number is equal to 9
 		if len(password) < 5 or len(password) > 30 or len(j_num) != 9:
 			message = "Invalid password or J#"
-			return render_template("signup.html", message=message)
+			return render_template("signUpTutor.html", message=message)
 
 		#check if the password is equal to the re-written password
 		elif password != re_password:
 			message = "Please, make sure your passwords are same!"
-			return render_template("signup.html", message=message)
+			return render_template("signUpTutor.html", message=message)
 			
 		elif "@" not in email or ".com" not in email:
 			message = "Invalid address! Pleae enter the correct email."
-			return render_template("signup.html", message=message)
+			return render_template("signUpTutor.html", message=message)
 
 		else:
-			if db.execute("SELECT j_num FROM login_signup WHERE j_num=:j_num",{'j_num': j_num}).rowcount == 0:
-				db.execute('INSERT INTO login_signup (first_name, last_name, j_num, email, password) VALUES(:first_name, :last_name,\
-					:j_num, :email, :password)',{"first_name":first_name, "last_name":last_name, "j_num":j_num, "email":email, "password":password})
+			if db.execute("SELECT j_num FROM login_signup WHERE j_num=:j_num",{'j_num': j_num}).rowcount == 0 and \
+			db.execute("SELECT secretcode, uniquecode FROM student_code JOIN login_signup_tutor ON student_code.uniquecode = login_signup_tutor.secretcode", {'uniquecode':uniquecode, 'secretcode':secretcode}).rowcount == 1:
+				db.execute('INSERT INTO login_signup_tutor (first_name, last_name, j_num, secretcode, email, password) VALUES(:first_name, :last_name,\
+					:j_num, :secretcode, :email, :password)',{"first_name":first_name, "last_name":last_name, "j_num":j_num, "secretcode":secretcode, "email":email, "password":password})
 				db.commit()
 				session['login'] = True
 
 				message = "Congratulations %s , Account successfully created!!!" % (first_name)
 				return render_template("registered.html", message=message)
 			else:
-				message = "The account already exists!!! Please login!"
-				return render_template("signup.html", message=message)
+				message = "The account already exists or invalid secret code. Make sure your code is right."
+				return render_template("signUpTutor.html", message=message)
 	else:
-		return render_template("signup.html")
+		return render_template("signUpTutor.html")
 
 				
 				
@@ -160,6 +162,44 @@ def login_submit():
 			return render_template("login.html", message=message)
 	else:
 		return render_template("login.html")
+
+
+
+
+
+
+
+@app.route("/admin_login", methods = ["POST", "GET"])
+def admin_login():
+
+	message = "This page is used by admins only. ADMINS ONLY!!!"
+	if request.method == "POST":
+		first_name = request.form.get('first_name')
+		j_num = request.form.get('login_id')
+		password = request.form.get('password')
+
+		if db.execute("SELECT * FROM admin WHERE first_name=:first_name and j_num=:j_num and password=:password", {'first_name':first_name, 'j_num':j_num, 'password':password}).fetchone():
+			message = "Welcome Adminstrator"
+			session['login'] = True
+			return render_template("adminDashboard.html", message=message)
+
+		else:
+			message = "Incorrect Password or the the username doesn't exist."
+			return render_template("adminLanding.html", message=message)
+	else:
+		return render_template("adminLanding.html", message=message)
+
+
+
+
+#
+#db.execute('INSERT INTO login_signup (first_name, last_name, j_num, email, password) VALUES(:first_name, :last_name,\
+#	:j_num, :email, :password)',{"first_name":first_name, "last_name":last_name, "j_num":j_num, "email":email, "password":password})
+
+			
+		
+	
+	
 
 
 

@@ -1,3 +1,3 @@
 # Project 1
 
-Web Programming with Python and JavaScript
+Simple flask app that helps students find a tutor
