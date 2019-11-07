@@ -179,7 +179,7 @@ def admin_login():
 		password = request.form.get('password')
 
 		if db.execute("SELECT * FROM admin WHERE first_name=:first_name and j_num=:j_num and password=:password", {'first_name':first_name, 'j_num':j_num, 'password':password}).fetchone():
-			message = "Welcome Adminstrator"
+			message = "Welcome Adminstrator!!!"
 			session['login'] = True
 			return render_template("adminDashboard.html", message=message)
 
@@ -196,10 +196,19 @@ def admin_login():
 #db.execute('INSERT INTO login_signup (first_name, last_name, j_num, email, password) VALUES(:first_name, :last_name,\
 #	:j_num, :email, :password)',{"first_name":first_name, "last_name":last_name, "j_num":j_num, "email":email, "password":password})
 
-			
-		
+
+@app.route("/view_credentials", methods = ["POST", "GET"])
+def view_credentials():
 	
-	
+	if request.method == "GET":
+#		if request.form['submit_button'] == 'View Admin':
+#		output = db.execute('SELECT * FROM admin').fetchall()
+#		return render_template("adminDashboard.html", output=output)
+#		elif request.form['submit_button'] == 'View Tutor':
+		tutors = db.execute('SELECT first_name, last_name, j_num, email FROM login_signup_tutor').fetchall()
+		admins = db.execute('SELECT first_name, j_num FROM admin').fetchall()
+		return render_template("adminDashboard.html", tutors=tutors, admins=admins)
+
 
 
 

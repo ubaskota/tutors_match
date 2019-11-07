@@ -10,7 +10,6 @@
   <head>
 
 
-
     <meta charset="utf-8">
 
 
@@ -35,6 +34,24 @@
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td{
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
 
 
   </head>
@@ -54,17 +71,6 @@
 
       <a class="navbar-brand" href="{{ url_for('index')}}">Homepage</a>
 
-
-
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-
-
-
-        <span class="navbar-toggler-icon"></span>
-
-
-
-      </button>
 
 
 
@@ -89,14 +95,11 @@
 
 
 
-            <a class="nav-link" href="{{ url_for('contact_us') }}">Contact Us</a>
+            <a class="nav-link"> <h2> {{ message }}</h2> </a>
 
 
 
           </li>
-
-
-
 
 
         </ul>
@@ -121,114 +124,11 @@
 
   <div class="row">
 
-    <div class="col-sm-4">
-
-      <h2> {{ message }}</h2>
-
-
-
-      <p></p>
-
-      <ul class="nav nav-pills flex-column">
-
-        <li class="nav-item">
-
-          <a class="nav-link active" href="#">Account</a>
-
-        </li>
-
-        <li class="nav-item">
-
-          <a class="nav-link" href="http://www.jsums.edu/">JSU Homepage</a>
-
-        </li>
-
-
-
-
-      </ul>
-
-      <!-- start sw-rss-feed code -->
 
 
       <script type="text/javascript">
 
       <!--
-
-      rssfeed_url = new Array();
-
-      rssfeed_url[0]="https://www.google.com/alerts/feeds/15649266666194466252/17130961574358914541";
-
-      rssfeed_frame_width="350";
-
-      rssfeed_frame_height="400";
-
-      rssfeed_scroll="on";
-
-      rssfeed_scroll_step="6";
-
-      rssfeed_scroll_bar="off";
-
-      rssfeed_target="_blank";
-
-      rssfeed_font_size="12";
-
-      rssfeed_font_face="";
-
-      rssfeed_border="on";
-
-      rssfeed_css_url="https://feed.surfing-waves.com/css/style6.css";
-
-      rssfeed_title="on";
-
-      rssfeed_title_name="";
-
-      rssfeed_title_bgcolor="#3366ff";
-
-      rssfeed_title_color="#fff";
-
-      rssfeed_title_bgimage="";
-
-      rssfeed_footer="off";
-
-      rssfeed_footer_name="rss feed";
-
-      rssfeed_footer_bgcolor="#fff";
-
-      rssfeed_footer_color="#333";
-
-      rssfeed_footer_bgimage="";
-
-      rssfeed_item_title_length="50";
-
-      rssfeed_item_title_color="#666";
-
-      rssfeed_item_bgcolor="#fff";
-
-      rssfeed_item_bgimage="";
-
-      rssfeed_item_border_bottom="on";
-
-      rssfeed_item_source_icon="off";
-
-      rssfeed_item_date="off";
-
-      rssfeed_item_description="on";
-
-      rssfeed_item_description_length="120";
-
-      rssfeed_item_description_color="#666";
-
-      rssfeed_item_description_link_color="#333";
-
-      rssfeed_item_description_tag="off";
-
-      rssfeed_no_items="0";
-
-      rssfeed_cache = "edfd96cf0b79ee961961c2836e2d58c4";
-
-      //-->
-
 
 
       </script>
@@ -238,55 +138,129 @@
       <hr class="d-sm-none">
 
     </div>
+
+
      <div class="col-sm-8">
 
-      <h2>Admin Activity</h2>
+      <font color='0F64A5'><center> <h2>Admin Activity</h2> </center></font>
 
-      <input type="submit" style="background-color:green";  name="submit_button" value="Add Admin">
+<!--       <input type="submit" style="background-color:green";  name="submit_button" value="Add Admin">
       &nbsp;
       &nbsp;
       &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+
       <input type="submit" style="background-color:green";  name="submit_button" value="Add Tutor">
       &nbsp;
       &nbsp;
       &nbsp;
-      <a href="{{ url_for('view_credentials')}}"><input type="submit" style="background-color:#33E9FF";  name="submit_button" value="View Admin">
+      &nbsp;
+      &nbsp;
+      &nbsp; -->
+
+<!--       <a href="{{ url_for('view_credentials')}}"><input type="submit" style="background-color:#33E9FF";  name="submit_button" value="View Admin">
       &nbsp;
       &nbsp;
       &nbsp;
+
       <a href="{{ url_for('view_credentials')}}"><input type="submit" style="background-color:#33E9FF";  name="submit_button" value="View Tutor">
       &nbsp;
       &nbsp;
       &nbsp;
-      <input type="submit" style="background-color:#FF333C";  name="submit_button" value="Delete Tutor">
+ -->
+       &nbsp;
       &nbsp;
       &nbsp;
       &nbsp;
-      <input type="submit" style="background-color:#FF333C";  name="submit_button" value="Delete Admin">
+      &nbsp;
+                  &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      <a href="{{ url_for('login_submit') }}"> <input type="submit" style="background-color:green";  name="submit_button" value="Add or Delete Tutor"> </a>
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+            &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+            &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+      &nbsp;
+            &nbsp;
 
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
-      &nbsp;
+      <a href="{{ url_for('login_submit') }}"> <input type="submit" style="background-color:#FF333C";  name="submit_button" value="Add or Delete Admin"></a>
+&nbsp;
+&nbsp;
+&nbsp;
+
+<font color='602B2E'><h2 align="left"> Current Tutors </h2></font>
+<table>
+  {% for item in tutors %}
+    <tr>
+    {% for d in item %}
+
+      <td>{{ d }}&nbsp;</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
 
 
-    </div>
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
+<font color='602B2E'><h2 align="left"> Current Admins </h2></font>
+<table>
+  {% for item in admins %}
+    <tr>
+    {% for d in item %}
 
+      <td>{{ d }}&nbsp;&nbsp;&nbsp;&nbsp;</td>
+    {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
 
-  </div>
-
+    </a>
+  </a>
 </div>
 
 
 
+<!-- <table>
+{% for t in table %}
+    <tr>
+    {% for i in t %}
+        <td>{{ i }}</td>
+    {% endfor %}
+    </tr>
+{% endfor %}
+ </table> -->
 
-<div class="jumbotron text-center" style="margin-bottom:0">
+<!-- <div class="jumbotron text-center" style="margin-bottom:100">
 
   <p style="color:black">&copy; Jackson State University</p>
 
-</div>
+</div> -->
 
 </body>
 
