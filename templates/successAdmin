@@ -7,7 +7,7 @@
 	</head>
 
 	<body>
-		<h1>  Congratulations, task successfully executed!!!</h1>
+		<h1>  Thanks for creating an account with us!!!</h1>
 
 		<h1> {{ message }}</h1>
 		

@@ -22,10 +22,10 @@ db = scoped_session(sessionmaker(bind=engine))
 
 
 
-@app.after_request
-def after_request(response):
-    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
-    return response
+#@app.after_request
+#def after_request(response):
+#    response.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+#    return response
 
 
 
@@ -209,6 +209,44 @@ def view_credentials():
 		admins = db.execute('SELECT first_name, j_num FROM admin').fetchall()
 		return render_template("adminDashboard.html", tutors=tutors, admins=admins)
 
+
+
+
+@app.route("/add_user", methods=["POST", "GET"])
+def add_user():
+	#return render_template("addDeleteUser.html"
+
+	if request.method == "POST":
+		first_name = request.form.get('f_name')
+		last_name = request.form.get('l_name')
+		j_num = request.form.get('j_num')
+		uniquecode = request.form.get('secretcode')
+		if db.execute("SELECT j_num FROM student_code WHERE j_num=:j_num",{'j_num': j_num}).rowcount == 0 and db.execute("SELECT uniquecode FROM student_code WHERE uniquecode=:uniquecode",{'uniquecode': uniquecode}).rowcount == 0:
+			db.execute('INSERT INTO student_code (first_name, last_name, j_num, uniquecode) VALUES(:first_name, :last_name,\
+				:j_num, :uniquecode)',{"first_name":first_name, "last_name":last_name, "j_num":j_num, "uniquecode":uniquecode})
+			db.commit()
+			message = "Successfully added a new user!!!"
+			return render_template("success.html", message=message)
+	else:
+		return render_template("addDeleteUser.html")
+		
+		
+	
+
+@app.route("/delete_user", methods=["POST", "GET"])
+def delete_user():
+
+	if request.method == "POST":
+		j_num = request.form.get('j_num')
+		if db.execute("SELECT j_num FROM student_code WHERE j_num=:j_num",{'j_num': j_num}).rowcount == 1:
+			db.execute("DELETE FROM student_code WHERE j_num=:j_num", {'j_num':j_num})
+			db.execute("DELETE FROM login_signup_tutor WHERE j_num=:j_num", {'j_num':j_num})
+			db.commit()
+			message = "Successfully deleted an existing tutor!!!"
+			return render_template("success.html", message=message)
+	else:
+		return render_template("addDeleteUser.html")
+			
 
 
 

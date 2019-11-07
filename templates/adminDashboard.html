@@ -159,8 +159,8 @@ tr:nth-child(even) {
       &nbsp;
       &nbsp;
       &nbsp; -->
-
-<!--       <a href="{{ url_for('view_credentials')}}"><input type="submit" style="background-color:#33E9FF";  name="submit_button" value="View Admin">
+<!-- 
+      <a href="{{ url_for('view_credentials')}}"><input type="submit" style="background-color:#33E9FF";  name="submit_button" value="View Admin">
       &nbsp;
       &nbsp;
       &nbsp;
@@ -168,8 +168,8 @@ tr:nth-child(even) {
       <a href="{{ url_for('view_credentials')}}"><input type="submit" style="background-color:#33E9FF";  name="submit_button" value="View Tutor">
       &nbsp;
       &nbsp;
-      &nbsp;
- -->
+      &nbsp; -->
+
        &nbsp;
       &nbsp;
       &nbsp;
@@ -181,7 +181,7 @@ tr:nth-child(even) {
       &nbsp;
       &nbsp;
       &nbsp;
-      <a href="{{ url_for('login_submit') }}"> <input type="submit" style="background-color:green";  name="submit_button" value="Add or Delete Tutor"> </a>
+      <a href="{{ url_for('delete_user') }}"> <input type="submit" style="background-color:green";  name="submit_button" value="Add or Delete Tutor"> </a>
       &nbsp;
       &nbsp;
       &nbsp;
@@ -202,10 +202,14 @@ tr:nth-child(even) {
       &nbsp;
             &nbsp;
 
-      <a href="{{ url_for('login_submit') }}"> <input type="submit" style="background-color:#FF333C";  name="submit_button" value="Add or Delete Admin"></a>
-&nbsp;
-&nbsp;
-&nbsp;
+      <a href="{{ url_for('add_user') }}"> <input type="submit" style="background-color:#FF333C";  name="submit_button" value="Add or Delete Admin"></a>
+
+
+<br style = “line-height:100;”>
+
+<br style = “line-height:100;”>
+<a href="{{ url_for('view_credentials') }}"> 
+
 
 <font color='602B2E'><h2 align="left"> Current Tutors </h2></font>
 <table>
@@ -220,14 +224,12 @@ tr:nth-child(even) {
 </table>
 
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
+<br style = “line-height:100;”>
+
+<br style = “line-height:100;”>
+
+
 <font color='602B2E'><h2 align="left"> Current Admins </h2></font>
 <table>
   {% for item in admins %}
