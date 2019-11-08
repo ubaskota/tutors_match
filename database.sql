@@ -37,8 +37,13 @@ CREATE TABLE admin(
 
 
 INSERT INTO student_code VALUES ('Ujjwal', 'Baskota', 'J00787739', 'A334411');
-INSERT INTO login_signup_tutor VALUES ('Ujjwal', 'Baskota', 'J00787739', 'A334411', 'ujjwal.baskota@gmail.com', '123456')
 INSERT INTO admin VALUES ('Ujjwal', 'J00787739', '12345');
+INSERT INTO admin VALUES ('John', 'J00787738', '12345');
+INSERT INTO admin VALUES ('Jack', 'J00787740', '12345');
+INSERT INTO login_signup_tutor VALUES ('Ujjwal', 'Baskota', 'J00787739', 'A334411', 'ujjwal.baskota@gmail.com', '123456')
+INSERT INTO login_signup_tutor VALUES ('Ujj', 'Baskota', 'J00787738', 'A334411', 'ujjwal.baskota@gmail.com', '123456')
+
+
 
 
 
